@@ -1,21 +1,27 @@
 # Python script to do frequency analysis from specific netflow exports
 
 # import modules
-import csv #this module helps with csv handling
 import pandas
 
 
-print('Enter filename for analysis:')
+print('Enter filename for analysis (Include .csv file extension):')
 InputFileName = input(' ')
-print('Enter name for output file')
+print('Enter name for output file (without file extension):')
 OutputFileName = input(' ')
+
+#Select Fields for frequency analysis
+Fields = ['client_ip_addr', 'server_ip_addr']
 
 ImportData = pandas.read_csv(InputFileName)
 
-ClientFrequency = pandas.crosstab(index=ImportData['client_ip_addr'], columns='count')
-#Adds count collum with frequency value
+#Start loop on each field
+for Field in Fields:
 
-Output = ClientFrequency.sort_values(by=['count'], ascending=False)
-#Sorts the Client IPs by frequency
+    ClientFrequency = pandas.crosstab(index=ImportData[Field], columns='count')
+    #Adds count collum with frequency value
 
-Output.to_csv(OutputFileName)
+    OutputClient = ClientFrequency.sort_values(by=['count'], ascending=False)
+    #Sorts the Client IPs by frequency
+
+    OutputClient.to_csv(OutputFileName+'_'+Field+'.csv')
+#TODO: Add join to include other fields from orriginal data

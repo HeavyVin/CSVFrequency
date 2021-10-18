@@ -1,4 +1,6 @@
 # NetflowFrequency
-Basic Frequency Analysis from Netflow data
+Basic Frequency Analysis from a csv file.
 
-Provide filenames with  .csv extention included
+This script was written to be easily modified to work with other types of data input as long as the file is stored as a csv.
+
+Provide input filename with .csv extension included and output filename without an extension.
