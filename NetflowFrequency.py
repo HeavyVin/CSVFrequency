@@ -24,4 +24,4 @@ for Field in Fields:
     #Sorts the Client IPs by frequency
 
     OutputClient.to_csv(OutputFileName+'_'+Field+'.csv')
-#TODO: Add join to include other fields from orriginal data
+#TODO: Add join to include other fields from original data
