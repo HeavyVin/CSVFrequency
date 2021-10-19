@@ -1,4 +1,4 @@
-# Python script to do frequency analysis from specific netflow exports
+# Python script to do frequency analysis from csv files
 
 # import modules
 import pandas
